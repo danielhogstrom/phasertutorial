@@ -33,6 +33,7 @@
       var game = new Phaser.Game(config);
       var score = 0;
       var scoreText;
+      var gameOverText;
 
       function preload() {
         this.load.image('sky', 'assets/sky.png');
@@ -48,6 +49,10 @@
         this.add.image(400, 300, 'sky');
         scoreText = this.add.text(16, 16, 'Score: 0', {
           fontSize: '32px',
+          fill: '#000',
+        });
+        gameOverText = this.add.text(262, 272, '', {
+          fontSize: '56px',
           fill: '#000',
         });
         //Physicsgroup
@@ -147,6 +152,7 @@
         player.anims.play('turn');
 
         gameOver = true;
+        gameOverText.setText('GAME OVER');
       }
     </script>
   </body>
